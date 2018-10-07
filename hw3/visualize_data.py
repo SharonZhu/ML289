@@ -17,6 +17,7 @@ def visualize(data_dir):
 
     pos = data_y[:] == +1.0
     neg = data_y[:] == -1.0
+
     plt.scatter(data_x[pos, 0], data_x[pos, 1], c='red', marker='+')
     plt.scatter(data_x[neg, 0], data_x[neg, 1], c='blue', marker='v')
     plt.savefig('Results/' + data_name + '.png')
