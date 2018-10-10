@@ -81,15 +81,15 @@ ct, rt = natural_rule(test_features, test_labels, w)
 print('testing set: correct = {:.20f}, error = {:.20f}'.format(ct, rt))
 
 # TODO: Implement classification using random features
-def gen_random_feature(X):
-    n, d = X.shape[0], X.shape[1]
-    G = np.random.normal(0, 0.01, [d, p])
-    b = np.random.uniform(0, 2 * np.pi, p)
-    print(np.cos(X@G + b).shape)
-    return np.cos(X@G + b)
+# def gen_random_feature(X):
+n, d = X.shape[0], X.shape[1]
+G = np.random.normal(0, 0.01, [d, p])
+b = np.random.uniform(0, 2 * np.pi, p)
+print(np.cos(X@G + b).shape)
+# return np.cos(X@G + b)
 
-random_train_features = gen_random_feature(train_features)
-random_test_features = gen_random_feature(test_features)
+random_train_features = np.cos(train_features@G + b)
+random_test_features = np.cos(test_features@G + b)
 
 random_w, random_ans = linear_regression(random_train_features, y)
 print('w: ', random_w)
